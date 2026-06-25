@@ -1,0 +1,10 @@
+{
+  "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/app/",
+      "permanent": false
+    }
+  ]
+}
