@@ -18,6 +18,15 @@
 - 기준 데이터: `safe-question-bank.json`
 - prompt 비어 있음: 44문항
 - Solve fallback 가능: 44문항 모두 `sectionTitle`로 표시
+- 보고서 축 동기화: `reportAxisJsonSync20260630`
+- 보고서 CSV 기준 축 동기화 문항: 5,155문항
+- 그래프 모드: `balanced_radar` 162개, `focused_axis` 116개
+
+## 배포
+
+- GitHub: `keears-cpu/quiz-bank`
+- Vercel: `question-bank-all`
+- Production URL: https://question-bank-all.vercel.app/app/index.html
 
 ## 사용
 
