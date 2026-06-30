@@ -495,7 +495,7 @@ function renderSolveForm() {
 }
 
 function renderNumberedPrompt(question, index, className = 'question-text') {
-  const promptHtml = renderQuestionPrompt(question, className);
+  const promptHtml = renderQuestionPromptForSolve(question, className);
   if (!promptHtml) return '';
   return `
     <div class="numbered-question-prompt">
@@ -522,7 +522,7 @@ function renderSolveQuestionGroup(groupItems, shownAudioUrls) {
             ${renderQuestionVisual(question)}
             <div class="subquestion-prompt">
               <span class="subquestion-number">${escapeHtml(question.questionNumber || index + 1)}.</span>
-              ${renderQuestionPrompt(promptQuestion, 'question-text subquestion-text')}
+              ${renderQuestionPromptForSolve(promptQuestion, 'question-text subquestion-text')}
             </div>
             ${renderAnswerInput(question, index)}
             <div class="result" id="result-${index}" hidden></div>
@@ -833,6 +833,13 @@ function renderQuestionPrompt(question, className, overrideLines = null) {
   const lines = Array.isArray(overrideLines) ? overrideLines : getQuestionPromptLines(question);
   if (!lines.length) return '';
   return `<div class="${className} text-block">${lines.map(line => `<div class="text-line">${formatRichText(line)}</div>`).join('')}</div>`;
+}
+
+function renderQuestionPromptForSolve(question, className) {
+  const lines = getQuestionPromptLines(question);
+  const fallbackLines = lines.length ? lines : [String(question.sectionTitle || '').trim()].filter(Boolean);
+  if (!fallbackLines.length) return '';
+  return `<div class="${className} text-block">${fallbackLines.map(line => `<div class="text-line">${formatRichText(line)}</div>`).join('')}</div>`;
 }
 
 function shouldRenderExtraAnswerLine(question) {

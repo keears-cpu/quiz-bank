@@ -12,10 +12,12 @@
 
 ## 데이터 요약
 
-- 시험지 수: 90
-- 문항 수: 1337
+- 시험지 수: 278
+- 문항 수: 13,139
 - 데이터 구조: `meta`, `exams`, `questions`
 - 기준 데이터: `safe-question-bank.json`
+- prompt 비어 있음: 44문항
+- Solve fallback 가능: 44문항 모두 `sectionTitle`로 표시
 
 ## 사용
 
